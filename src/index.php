@@ -1,9 +1,22 @@
+<html>
+<head><title>Jenkinsphp example</title></head>
 <?php
 echo "FQDN: ". $_SERVER['SERVER_NAME']."<br />";
 echo "Container: ". $_SERVER['SERVER_ADDR']."<br />";
 echo "UniqueID: ". $_SERVER['UNIQUE_ID']."<br />";
-echo "Jenkins pipelines - 8 May 16:05 ";
-echo "Jenkins pipelines - Jenkins DEMO ";
+echo "Jenkins pipelines 8th May 2016";
 ?>
+<pre>
+	     FAIL WHALE!
 
-
+W     W      W
+W        W  W     W
+              '.  W
+  .-""-._     \ \.--|
+ /       "-..__) .-'
+|     _         /
+\'-.__,   .__.,'
+ `'----'._\--'
+VVVVVVVVVVVVVVVVVVVVV
+</pre>
+</html>
