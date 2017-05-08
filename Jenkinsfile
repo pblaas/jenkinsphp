@@ -3,7 +3,7 @@ podTemplate(label: 'mypod', containers: [
     volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]) {
 
   node('mypod') {
-    stage('Build and Push jenkinsphp'){
+    stage('Build and Push'){
         git url: 'https://github.com/pblaas/jenkinsphp.git'
         container('docker'){
           stage ('Build Docker image'){
@@ -22,7 +22,7 @@ podTemplate(label: 'mypod', containers: [
     }
     stage('Deploy to cluster'){
       //Set Kubernetes config
-      sh("curl -O https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/linux/amd64/kubectl && chmod +x kubectl")
+      sh("fetch https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/linux/amd64/kubectl && chmod +x kubectl")
       sh("./kubectl config set-credentials jenkins-build --token=`cat /var/run/secrets/kubernetes.io/serviceaccount/token`")
       sh("./kubectl config set-cluster internal1 --server=https://kubernetes --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
       sh("./kubectl config set-context default --user=jenkins-build --namespace=`cat /var/run/secrets/kubernetes.io/serviceaccount/namespace`  --cluster=internal1")
