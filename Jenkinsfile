@@ -1,4 +1,8 @@
-node {
+podTemplate(label: 'mypod', containers: [
+    containerTemplate(name: 'docker', image: 'docker', ttyEnabled: true, command: 'cat'),
+  ]) {
+
+  node {
     stage ('Retrieve Code'){
     git url: 'https://github.com/pblaas/jenkinsphp.git'
     } 
@@ -10,4 +14,5 @@ node {
         image.push()
       }
     }
+  }
 }
