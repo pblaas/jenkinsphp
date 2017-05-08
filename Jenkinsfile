@@ -32,7 +32,8 @@ node{
     sh("./kubectl config set-context default --user=jenkins-build --namespace=`cat /var/run/secrets/kubernetes.io/serviceaccount/namespace`  --cluster=internal1")
     sh("./kubectl config use-context default")
     sh("echo img.id: ${env.BUILD_TAG}")
-    //sh("kubectl rolling-update jenkinsphp --image=${img.id} --update-period=1s")
+    sh("./kubectl version")
+    sh("./kubectl get deployment")
     sh("./kubectl set image deployment jenkinsphp-deployment jenkinsphp=pblaas/jenkinsphp:${env.BUILD_TAG}")
   }
 }
