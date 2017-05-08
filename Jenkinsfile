@@ -7,7 +7,7 @@ podTemplate(label: 'mypod', containers: [
         git url: 'https://github.com/pblaas/jenkinsphp.git'
         container('docker'){
           stage ('Build Docker image'){
-            sh 'which docker;docker version'
+            sh 'which docker'
             def image = docker.build('pblaas/simplephp:snapshot', '.')
           }
           stage ('Push Docker image'){
