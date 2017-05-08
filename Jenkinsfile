@@ -34,6 +34,6 @@ node{
     sh("echo img.id: ${env.BUILD_TAG}")
     sh("./kubectl version")
     sh("./kubectl get deployment")
-    sh("./kubectl set image deployment jenkinsphp-deployment jenkinsphp=pblaas/jenkinsphp:${env.BUILD_TAG}")
+    sh("./kubectl -n default set image deployment jenkinsphp-deployment jenkinsphp=pblaas/jenkinsphp:${env.BUILD_TAG}")
   }
 }
