@@ -8,12 +8,13 @@ podTemplate(label: 'mypod', containers: [
         container('docker'){
           stage ('Build Docker image'){
             sh 'which docker; docker version'
-            def imageName = "pblaas/jenkinsphp:snapshot"
-            def image = docker.build(imageName)
+            def imageName = "pblaas/jenkinsphp:${env.BUILD_TAG}"
+            sh "docker build -t ${imageName}  ."
+            def img= docker.image(imageName)
           
             stage ('Push Docker image'){
               docker.withRegistry("https://registry.hub.docker.com", "docker-registry") {
-                image.push()
+                img.push()
               }
             }
           }
