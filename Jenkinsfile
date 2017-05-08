@@ -9,10 +9,11 @@ podTemplate(label: 'mypod', containers: [
           stage ('Build Docker image'){
             sh 'which docker; docker version'
             def image = docker.build('pblaas/simplephp:snapshot', '.')
-          }
-          stage ('Push Docker image'){
-            docker.withRegistry("https://registry.hub.docker.com", "docker-registry") {
-              image.push()
+          
+            stage ('Push Docker image'){
+              docker.withRegistry("https://registry.hub.docker.com", "docker-registry") {
+                image.push()
+              }
             }
           }
         }
