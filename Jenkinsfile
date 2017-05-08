@@ -8,7 +8,6 @@ podTemplate(label: 'mypod', containers: [
         container('docker'){
           stage ('Build Docker image'){
             sh 'which docker; docker version'
-            sh 'service docker start'
             def image = docker.build('pblaas/simplephp:snapshot', '.')
           }
           stage ('Push Docker image'){
