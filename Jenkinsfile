@@ -26,9 +26,10 @@ podTemplate(label: 'mypod', containers: [
 node{
   stage('Deploy to cluster'){
     //Set Kubernetes config
-   for(e in env){
-        echo e + " is " + ${e}
+    def printParams() {
+     env.getEnvironment().each { name, value -> println "Name: $name -> Value $value" }
     }
+    printParams()
     sh("hostname && cat /etc/issue")
     sh("wget -q https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/linux/amd64/kubectl && chmod +x kubectl")
     sh("./kubectl config set-credentials jenkins-build --token=`cat /var/run/secrets/kubernetes.io/serviceaccount/token`")
