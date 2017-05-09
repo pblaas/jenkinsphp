@@ -1,6 +1,6 @@
 <!DOCTYPE html> 
 <head><title>Jenkinsphp example</title>
-<meta http-equiv="refresh" content="5">
+<meta http-equiv="refresh" content="10">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- Latest compiled and minified CSS -->
