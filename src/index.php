@@ -8,7 +8,8 @@
 <?php
 echo "FQDN: ". $_SERVER['SERVER_NAME']."<br />";
 echo "Container: ". $_SERVER['SERVER_ADDR']."<br />";
-echo "UniqueID: ". $_SERVER['UNIQUE_ID']."<br />";
+echo "PHP version: ". $_ENV['PHP_VERSION']."<br />";
+echo "Server Software: ". $_SERVER['SERVER_SOFTWARE']."<br />";
 ?>
 <br>
 <br>
