@@ -24,7 +24,7 @@ VVVVVVVVVVVVVVVVVVVVV
 <br>
 <br>
 <center>
-<img src="containership_1.jpg">
+<img src="containership_2.jpg">
 
 </center>
 </html>
