@@ -26,7 +26,7 @@ podTemplate(label: 'mypod', containers: [
 node{
   stage('Deploy to cluster'){
     //Set Kubernetes config
-    sh("hostname && cat /etc/issue && echo ${env}")
+    sh("hostname && cat /etc/issue && echo ${env.getEnvironment()}")
     sh("wget -q https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/linux/amd64/kubectl && chmod +x kubectl")
     sh("./kubectl config set-credentials jenkins-build --token=`cat /var/run/secrets/kubernetes.io/serviceaccount/token`")
     sh("./kubectl config set-cluster internal1 --server=https://10.3.0.1 --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
