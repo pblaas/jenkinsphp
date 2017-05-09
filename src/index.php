@@ -1,5 +1,7 @@
 <html>
-<head><title>Jenkinsphp example</title></head>
+<head><title>Jenkinsphp example</title>i
+<meta http-equiv="refresh" content="5">
+</head>
 <?php
 echo "FQDN: ". $_SERVER['SERVER_NAME']."<br />";
 echo "Container: ". $_SERVER['SERVER_ADDR']."<br />";
@@ -22,7 +24,7 @@ VVVVVVVVVVVVVVVVVVVVV
 <br>
 <br>
 <center>
-<img src="containership_2.jpg">
+<img src="containership_1.jpg">
 
 </center>
 </html>
